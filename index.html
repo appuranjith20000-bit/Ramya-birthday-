@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Ramya 🎂</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ffb6c1,#ffd6e0,#ffe8cc);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+    padding:15px;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    background:white;
+    padding:25px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    transition:0.3s;
+    animation:fadeIn 0.5s ease;
+}
+
+h2{
+    margin-bottom:10px;
+    color:#ff5c8a;
+}
+
+p{
+    color:#444;
+    line-height:1.5;
+}
+
+button{
+    margin-top:18px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:25px;
+    background:#ff5c8a;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.03);
+    background:#ff3f74;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* Floating hearts */
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    color:rgba(255,255,255,0.6);
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="content">
+    <h2>🎂 Hey Ramya</h2>
+    <p>I made something small for your birthday 🙂</p>
+    <button onclick="nextPage()">Open</button>
+</div>
+
+<script>
+
+let page = 1;
+
+function nextPage(){
+
+    const c = document.getElementById("content");
+
+    c.style.opacity = 0;
+
+    setTimeout(()=>{
+
+        page++;
+
+        if(page === 2){
+
+            c.innerHTML = `
+            <h2>Happy Birthday 🎉</h2>
+            <p>Today is all about you and your smile ✨</p>
+            <button onclick="nextPage()">Continue</button>`;
+        }
+
+        else if(page === 3){
+
+            c.innerHTML = `
+            <h2>Honestly 🙂</h2>
+            <p>You are one of the sweetest person I’ve ever met</p>
+            <button onclick="nextPage()">Next</button>`;
+        }
+
+        else if(page === 4){
+
+            c.innerHTML = `
+            <h2>And also 😌</h2>
+            <p>Thank you for being there during random talks, laughs and everything in between</p>
+            <button onclick="nextPage()">Continue</button>`;
+        }
+
+        else if(page === 5){
+
+            c.innerHTML = `
+            <h2>Little reminder 🌸</h2>
+            <p>You deserve happiness, peace, success and people who truly value you</p>
+            <button onclick="nextPage()">Continue</button>`;
+        }
+
+        else if(page === 6){
+
+            c.innerHTML = `
+            <h2>One more thing 🫶</h2>
+            <p>I hope this year gives you beautiful memories and countless reasons to smile</p>
+            <button onclick="nextPage()">Next</button>`;
+        }
+
+        /* FAKE TEXTING PAGE */
+
+        else if(page === 7){
+
+            c.innerHTML = `
+
+            <h2>💬</h2>
+
+            <div id="chatBox" style="
+            text-align:left;
+            margin-top:15px;
+            background:#f5f5f5;
+            padding:15px;
+            border-radius:15px;
+            min-height:220px;
+            font-size:15px;
+            line-height:1.7;
+            overflow:hidden;
+            "></div>
+
+            <button id="nextBtn"
+            onclick="nextPage()"
+            style="display:none;">
+            Continue 💖
+            </button>
+            `;
+
+            const messages = [
+
+                "Ramya: Will you always be there for me? 🙂",
+
+                "You: Even when you become extra annoying 😭",
+
+                "Ramya: Wow rude.",
+
+                "You: But yes… always 😁",
+
+                "Ramya: Promise?",
+
+                "You: Pinky promise 🤝",
+
+                "Ramya: Then don't disappear someday okay?",
+
+                "You: Never 😆"
+
+            ];
+
+            let i = 0;
+
+            function showMessages(){
+
+                if(i < messages.length){
+
+                    const msg = document.createElement("p");
+
+                    msg.style.opacity = 0;
+                    msg.style.transition = "0.4s";
+
+                    msg.innerHTML = messages[i];
+
+                    document.getElementById("chatBox").appendChild(msg);
+
+                    setTimeout(()=>{
+                        msg.style.opacity = 1;
+                    },100);
+
+                    i++;
+
+                    setTimeout(showMessages,1200);
+
+                } else {
+
+                    document.getElementById("nextBtn").style.display = "block";
+                }
+            }
+
+            showMessages();
+        }
+
+        /* FINAL PAGE */
+
+        else if(page === 8){
+
+            c.innerHTML = `
+            <h2>Final page 💖</h2>
+            <p style="font-size:18px;">
+            Ramya…<br><br>
+
+            No matter how much we talk or how busy life gets,<br>
+            I just want you to know that you are genuinely special to me.<br><br>
+
+            Your presence makes things feel lighter, happier and warmer in a way I can’t explain properly 🙂<br><br>
+
+            So today, I just wish that your heart stays happy,
+            your smile stays real,
+            and life gives you everything you secretly pray for 🌸<br><br>
+
+            Happy Birthday Bestie 🎂💖
+            </p>
+
+            <p style="font-size:40px;">🫶</p>
+
+            <p style="margin-top:15px; font-style:italic;">
+            And yes… you may be short in height 😭
+            but your heart and kindness are taller than everyone I know 💖
+            </p>
+
+            <button onclick="nextPage()">One Last Thing 🎂</button>`;
+        }
+
+        /* CAKE PAGE */
+
+        else if(page === 9){
+
+            c.innerHTML = `
+
+            <h2>🎈</h2>
+
+            <p style="margin-top:20px;">
+            Now give me cake and biriyani for making this 😭🎂
+            </p>
+
+            <button onclick="popBalloons()">Close 💖</button>
+            `;
+        }
+
+        c.style.opacity = 1;
+
+    },200);
+}
+
+/* Floating hearts */
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+
+    heart.style.left = Math.random()*100 + "vw";
+    heart.style.fontSize = (Math.random()*20 + 15) + "px";
+    heart.style.animationDuration = (Math.random()*3 + 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },7000);
+}
+
+setInterval(createHeart,500);
+
+/* BALLOON POP EFFECT */
+
+function popBalloons(){
+
+    for(let i = 0; i < 25; i++){
+
+        const balloon = document.createElement("div");
+
+        balloon.innerHTML = "🎈";
+
+        balloon.style.position = "fixed";
+        balloon.style.left = Math.random() * 100 + "vw";
+        balloon.style.top = "100vh";
+        balloon.style.fontSize = (Math.random() * 25 + 20) + "px";
+        balloon.style.transition = "transform 3s linear, opacity 3s";
+
+        document.body.appendChild(balloon);
+
+        setTimeout(() => {
+            balloon.style.transform =
+            `translateY(-120vh) rotate(${Math.random()*360}deg)`;
+
+            balloon.style.opacity = 0;
+        },100);
+
+        setTimeout(() => {
+            balloon.remove();
+        },3000);
+    }
+
+    setTimeout(() => {
+
+        document.body.innerHTML = `
+        <div style="
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        height:100vh;
+        font-family:Segoe UI,sans-serif;
+        background:linear-gradient(135deg,#ffb6c1,#ffd6e0,#ffe8cc);
+        text-align:center;
+        padding:20px;
+        ">
+            <div>
+                <h1 style="color:#ff5c8a;">🎂 The End 💖</h1>
+                <p style="font-size:18px;color:#444;">
+                Hope you smiled while reading this 🫶
+                </p>
+            </div>
+        </div>
+        `;
+
+    },3000);
+}
+
+</script>
+
+</body>
+</html>
